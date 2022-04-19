@@ -6,5 +6,5 @@ AUTOR:        Marco Antonio Cabrera Hernández
 FECHA:        19-04-2022
 EMAIL:        alu0101327372@ull.edu.es
 UNIVERSIDAD:  Universidad de La Laguna
-ASIGNATURA:   DESARROLLO DE SISTEMAS INFORMÁTICOS
+ASIGNATURA:   Desarrollo de Sistemas Informáticos
 ```
