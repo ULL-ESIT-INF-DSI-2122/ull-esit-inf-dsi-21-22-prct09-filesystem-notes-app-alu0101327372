@@ -1,1 +1,1 @@
-# Infomre - Práctica 9: Aplicación de procesamiento de notas de texto
+# Informe - Práctica 9: Aplicación de procesamiento de notas de texto
