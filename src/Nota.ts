@@ -1,3 +1,5 @@
+import { Color } from './Color';
+
 /**
  * @class Representa una nota.
  */
@@ -5,13 +7,13 @@ export class Nota {
   /**
    * Inicializa una nota.
    * @param {string} titulo Titulo de la nota
-   * @param {string} color Color del texto
    * @param {string} cuerpo Cuerpo de la nota
+   * @param {Color} color Color del texto
    */
   constructor(
     private titulo: string,
     private cuerpo: string,
-    private color: string,
+    private color: Color,
   ) {
     this.titulo = titulo;
     this.cuerpo = cuerpo;
@@ -30,7 +32,7 @@ export class Nota {
    * Devuelve el color del texto.
    * @returns {string}
    */
-   public getColor(): string {
+   public getColor(): Color {
     return this.color;
   }
 
@@ -47,7 +49,6 @@ export class Nota {
    * @returns {string}
    */
   public write(): string {
-    return `{\n\"titulo\": \"' + ${this.titulo} + '\",\n\"cuerpo\": \"'+ ${this.cuerpo} +
-    '\",\n\"color\": \"' + ${this.color} + '\"\n}`;
+    return `{\n\  "titulo\": \"${this.titulo}\",\n\  "cuerpo\": \"${this.cuerpo}\",\n\  "color\": \"${this.color}\"\n}`;
   }
 }
