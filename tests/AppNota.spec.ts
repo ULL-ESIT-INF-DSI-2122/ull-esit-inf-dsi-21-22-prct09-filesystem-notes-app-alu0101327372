@@ -1,9 +1,7 @@
 import 'mocha';
-import { expect } from 'chai';
-import { Nota } from '../src/Nota';
-import { Color } from '../src/Color';
-import { AppNotas } from '../src/AppNotas';
 import * as fs from 'fs';
+import { expect } from 'chai';
+import { AppNotas } from '../src/AppNotas';
 
 describe('Test de la clase AppNotas', () => {
   const app = new AppNotas();
