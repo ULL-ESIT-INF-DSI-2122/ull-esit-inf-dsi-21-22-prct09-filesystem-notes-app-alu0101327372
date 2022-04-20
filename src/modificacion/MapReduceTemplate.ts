@@ -12,7 +12,7 @@
    * Runs the algorithm.
    * @returns Returns algorithms result.
    */
-  public run() {
+  public run(): number {
     // Hook
     this.beforeMap();
 

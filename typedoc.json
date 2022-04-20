@@ -6,5 +6,5 @@
     "./src/modificacion/ProdMapReduce.ts",
     "./src/modificacion/DivMapReduce.ts"
   ],
-  "out": "./docs"
+  "out": "./doc"
 }

@@ -15,7 +15,7 @@ export class SubMapReduce extends MapReduceTemplate {
    * Algorithm reduce
    */
   public reduce(): number {
-    let result: number = this.arr[0]*2;
+    let result: number = this.arr[0] * 2;
     this.arr.forEach((element) => {
       result -= element;
     });
