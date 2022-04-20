@@ -27,7 +27,7 @@ export class AddMapReduce extends MapReduceTemplate {
    */
   public beforeReduce(): string {
     const msg: string = 'Starting AddMapReduce ...';
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
   /**
@@ -36,7 +36,7 @@ export class AddMapReduce extends MapReduceTemplate {
    */
   public afterReduce(): string {
     const msg: string = `AddMapReduce finished. Result: ${this.reduce()}`;
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
 }

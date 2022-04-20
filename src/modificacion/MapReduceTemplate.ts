@@ -68,7 +68,7 @@
    */
    public beforeMap(): string {
     const msg: string = 'Starting Map ...';
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
   /**
@@ -77,7 +77,7 @@
    */
   public afterMap(): string {
     const msg: string = `Map finished.`;
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
 }

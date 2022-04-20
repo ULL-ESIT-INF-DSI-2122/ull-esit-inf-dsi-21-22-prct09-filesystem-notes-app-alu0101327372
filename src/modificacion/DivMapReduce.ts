@@ -27,7 +27,7 @@ export class DivMapReduce extends MapReduceTemplate {
    */
   public beforeReduce(): string {
     const msg: string = 'Starting DivMapReduce ...';
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
   /**
@@ -36,7 +36,7 @@ export class DivMapReduce extends MapReduceTemplate {
    */
   public afterReduce(): string {
     const msg: string = `DivMapReduce finished. Result: ${this.reduce()}`;
-    console.log(msg);
+    // console.log(msg);
     return msg;
   }
 }
