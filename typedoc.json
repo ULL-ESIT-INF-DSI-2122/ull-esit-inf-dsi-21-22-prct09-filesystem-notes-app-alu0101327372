@@ -1,5 +1,10 @@
 {
   "entryPoints": [
+    "./src/modificacion/MapReduceTemplate.ts",
+    "./src/modificacion/AddMapReduce.ts",
+    "./src/modificacion/SubMapReduce.ts",
+    "./src/modificacion/ProdMapReduce.ts",
+    "./src/modificacion/DivMapReduce.ts"
   ],
   "out": "./docs"
 }
