@@ -6,11 +6,6 @@ import { AppNotas } from '../src/AppNotas';
 
 describe('Test de la clase AppNotas', () => {
   const app = new AppNotas();
-  it('Se puede crear una nueva nota', () => {
-    expect(app.addNota('Marco', 'Mi nota', 'Esta nota es una prueba', 'azul')).to.be.eql(chalk.green('Nueva nota añadida'));
-    expect(fs.existsSync('data/Marco/Mi Nota.json')).true;
-  });
-
   it('Si el directorio no existe se crea', () => {
     app.addNota('DSI', 'Mi nota', 'Esta nota es una prueba', 'azul');
     expect(fs.existsSync('data/DSI')).true;
