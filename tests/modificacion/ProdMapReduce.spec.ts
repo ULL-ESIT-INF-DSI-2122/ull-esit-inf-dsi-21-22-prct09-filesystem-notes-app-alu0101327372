@@ -1,6 +1,6 @@
 import 'mocha';
 import {expect} from 'chai';
-import {ProdMapReduce} from '../src/modificacion/ProdMapReduce';
+import {ProdMapReduce} from '../../src/modificacion/ProdMapReduce';
 
 describe('Pruebas clase ProdMapReduce', () => {
   let addReduce: ProdMapReduce;

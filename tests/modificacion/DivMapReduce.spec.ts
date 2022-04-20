@@ -1,6 +1,6 @@
 import 'mocha';
 import {expect} from 'chai';
-import {DivMapReduce} from '../src/modificacion/DivMapReduce';
+import {DivMapReduce} from '../../src/modificacion/DivMapReduce';
 
 describe('Pruebas clase DivMapReduce', () => {
   let addReduce: DivMapReduce;

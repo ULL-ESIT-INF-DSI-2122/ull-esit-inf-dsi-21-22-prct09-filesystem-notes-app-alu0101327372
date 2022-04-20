@@ -1,6 +1,6 @@
 import 'mocha';
 import {expect} from 'chai';
-import {SubMapReduce} from '../src/modificacion/SubMapReduce';
+import {SubMapReduce} from '../../src/modificacion/SubMapReduce';
 
 describe('Pruebas clase SubMapReduce', () => {
   let addReduce: SubMapReduce;
