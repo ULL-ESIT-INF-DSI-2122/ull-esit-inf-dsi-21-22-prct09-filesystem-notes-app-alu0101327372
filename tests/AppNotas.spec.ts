@@ -13,6 +13,7 @@ describe('Test de la clase AppNotas', () => {
   });
 
   it('No se puede crear una nota con un título que ya existe', () => {
+    app.addNota('Marco', 'Mi nota', 'Esta nota es una prueba', 'azul');
     expect(app.addNota('Marco', 'Mi nota', 'Esta nota es una prueba 2', 'azul')).to.be.eql(chalk.red('Ya existe una nota con ese título'));
   });
 

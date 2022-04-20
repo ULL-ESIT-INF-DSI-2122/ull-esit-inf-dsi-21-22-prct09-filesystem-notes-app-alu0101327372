@@ -20,4 +20,8 @@ describe('Test de la clase Nota', () => {
   it('El color de la nota es Blue', () => {
     expect(nota.getColor()).to.be.eql('azul');
   });
+
+  it('El color de la nota es Blue', () => {
+    expect(nota.write()).to.be.eql(JSON.stringify(nota, null, 2));
+  });
 });

@@ -32,7 +32,7 @@ export class Nota {
    * Devuelve el color del texto.
    * @returns {string}
    */
-   public getColor(): Color {
+  public getColor(): Color {
     return this.color;
   }
 
@@ -40,7 +40,7 @@ export class Nota {
    * Devuelve el cuerpo de la nota.
    * @returns {string}
    */
-   public getCuerpo(): string {
+  public getCuerpo(): string {
     return this.cuerpo;
   }
 
