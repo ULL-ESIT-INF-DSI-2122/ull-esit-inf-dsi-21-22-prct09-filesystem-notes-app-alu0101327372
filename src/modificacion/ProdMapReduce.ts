@@ -26,8 +26,7 @@ export class ProdMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg: string = 'Starting ProdMapReduce ...';
-    // console.log(msg);
+    const msg = 'Starting ProdMapReduce ...';
     return msg;
   }
   /**
@@ -35,8 +34,7 @@ export class ProdMapReduce extends MapReduceTemplate {
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg: string = `ProdMapReduce finished. Result: ${this.reduce()}`;
-    // console.log(msg);
+    const msg = `ProdMapReduce finished. Result: ${this.reduce()}`;
     return msg;
   }
 }

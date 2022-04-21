@@ -26,8 +26,7 @@ export class SubMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg: string = 'Starting SubMapReduce ...';
-    // console.log(msg);
+    const msg = 'Starting SubMapReduce ...';
     return msg;
   }
   /**
@@ -35,8 +34,7 @@ export class SubMapReduce extends MapReduceTemplate {
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg: string = `SubMapReduce finished. Result: ${this.reduce()}`;
-    // console.log(msg);
+    const msg = `SubMapReduce finished. Result: ${this.reduce()}`;
     return msg;
   }
 }

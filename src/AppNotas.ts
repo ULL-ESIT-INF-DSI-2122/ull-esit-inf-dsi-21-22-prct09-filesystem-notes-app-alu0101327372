@@ -3,6 +3,8 @@ import chalk from 'chalk';
 import { Nota } from './Nota';
 import { Color } from './Color';
 
+const NOEXISTNOTA: string = chalk.red('No existe una nota con ese título');
+
 /**
  * @class Aplicación de procesamiento de notas de texto.
  */
@@ -10,7 +12,9 @@ export class AppNotas {
   /**
    * Inicializa la app.
    */
-  constructor() {}
+  constructor() {
+    // El constructor esta vacío porque no necesita parámetros.
+  }
 
   /**
    * Añade una nota a la lista.
@@ -45,7 +49,7 @@ export class AppNotas {
       fs.writeFileSync(`data/${usuario}/${titulo}.json`, nota.write());
       return chalk.green('Nota modificada correctamente');
     } else {
-      return chalk.red('No existe una nota con ese título');
+      return NOEXISTNOTA;
     }
   }
 
@@ -59,7 +63,7 @@ export class AppNotas {
       fs.rmSync(`data/${usuario}/${titulo}.json`);
       return chalk.green('Nota eliminada correctamente');
     } else {
-      return chalk.red('No existe una nota con ese título');
+      return NOEXISTNOTA;
     }
   }
 
@@ -74,14 +78,14 @@ export class AppNotas {
       const allTitulo: string[] = fs.readdirSync(`data/${usuario}`);
       const result: string[] = [];
       allTitulo.forEach(titulo => {
-        let data = fs.readFileSync(`data/${usuario}/${titulo}`);
-        let notaObject = JSON.parse(data.toString());
-        let nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
-        if (nota.getColor() == 'azul') {
+        const data = fs.readFileSync(`data/${usuario}/${titulo}`);
+        const notaObject = JSON.parse(data.toString());
+        const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
+        if (nota.getColor() === 'azul') {
           result.push(chalk.blue(nota.getTitulo()));
-        } else if (nota.getColor() == 'rojo') {
+        } else if (nota.getColor() === 'rojo') {
           result.push(chalk.red(nota.getTitulo()));
-        } else if (nota.getColor() == 'verde') {
+        } else if (nota.getColor() === 'verde') {
           result.push(chalk.green(nota.getTitulo()));
         } else {
           result.push(chalk.yellow(nota.getTitulo()));
@@ -98,20 +102,20 @@ export class AppNotas {
    */
   public readNota(usuario: string, titulo: string): string {
     if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
-      let data = fs.readFileSync(`data/${usuario}/${titulo}.json`);
-      let notaObject = JSON.parse(data.toString());
-      let nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
-      if (nota.getColor() == 'azul') {
+      const data = fs.readFileSync(`data/${usuario}/${titulo}.json`);
+      const notaObject = JSON.parse(data.toString());
+      const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
+      if (nota.getColor() === 'azul') {
         return chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo());
-      } else if (nota.getColor() == 'rojo') {
+      } else if (nota.getColor() === 'rojo') {
         return chalk.red(nota.getTitulo(), '\n', nota.getCuerpo());
-      } else if (nota.getColor() == 'verde') {
+      } else if (nota.getColor() === 'verde') {
         return chalk.green(nota.getTitulo(), '\n', nota.getCuerpo());
       } else {
         return chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo());
       }
     } else {
-      return chalk.red('No existe una nota con ese título');
+      return NOEXISTNOTA;
     }
   }
 }

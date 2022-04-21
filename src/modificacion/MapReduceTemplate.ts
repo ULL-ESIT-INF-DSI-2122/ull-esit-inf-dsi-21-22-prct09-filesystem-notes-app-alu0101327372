@@ -56,19 +56,22 @@
   /**
    * Hook
    */
-  protected beforeReduce() {}
+  protected beforeReduce() {
+    // This is intentionaly
+  }
   /**
    * Hook
    */
-  protected afterReduce() {}
+  protected afterReduce() {
+    // This is intentionaly
+  }
 
   /**
    * Hook
    * @returns Returns starting message.
    */
    public beforeMap(): string {
-    const msg: string = 'Starting Map ...';
-    // console.log(msg);
+    const msg = 'Starting Map ...';
     return msg;
   }
   /**
@@ -76,8 +79,7 @@
    * @returns Returns finishing message.
    */
   public afterMap(): string {
-    const msg: string = `Map finished.`;
-    // console.log(msg);
+    const msg = `Map finished.`;
     return msg;
   }
 }

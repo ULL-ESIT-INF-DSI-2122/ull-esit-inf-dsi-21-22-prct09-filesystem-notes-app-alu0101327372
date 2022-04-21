@@ -15,7 +15,7 @@ export class AddMapReduce extends MapReduceTemplate {
    * Algorithm reduce
    */
   public reduce(): number {
-    let result: number = 0;
+    let result = 0;
     this.arr.forEach((element) => {
       result += element;
     });
@@ -26,8 +26,7 @@ export class AddMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg: string = 'Starting AddMapReduce ...';
-    // console.log(msg);
+    const msg = 'Starting AddMapReduce ...';
     return msg;
   }
   /**
@@ -35,8 +34,7 @@ export class AddMapReduce extends MapReduceTemplate {
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg: string = `AddMapReduce finished. Result: ${this.reduce()}`;
-    // console.log(msg);
+    const msg = `AddMapReduce finished. Result: ${this.reduce()}`;
     return msg;
   }
 }

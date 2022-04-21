@@ -11,9 +11,9 @@ export class Nota {
    * @param {Color} color Color del texto
    */
   constructor(
-    private titulo: string,
-    private cuerpo: string,
-    private color: Color,
+    private readonly titulo: string,
+    private readonly cuerpo: string,
+    private readonly color: Color,
   ) {
     this.titulo = titulo;
     this.cuerpo = cuerpo;
