@@ -78,7 +78,10 @@ export class AppNotas {
    * @param usuario Usuario del que se listan los titulos de las notas
    */
   public listNotas(usuario: string): string {
-    if (fs.readdirSync(`data/${usuario}`).length === 0) {
+    if (!fs.existsSync(`data/${usuario}`)) {
+      console.log(chalk.red('No existe ese usuario'));
+      return chalk.red('No existe ese usuario');
+    } else if (fs.readdirSync(`data/${usuario}`).length === 0) {
       console.log(chalk.red('No tienes ninguna nota en tu lista'));
       return chalk.red('No tienes ninguna nota en tu lista');
     } else {

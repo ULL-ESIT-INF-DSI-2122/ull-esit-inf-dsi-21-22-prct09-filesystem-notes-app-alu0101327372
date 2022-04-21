@@ -49,6 +49,10 @@ describe('Test de la clase AppNotas', () => {
     app.removeNota('Marco', 'Mi nota 4');
   });
 
+  it('No se pueden listar las notas de un ususario que no existe', () => {
+    expect(app.listNotas('Marcos')).to.be.eql(chalk.red('No existe ese usuario'));
+  });
+
   it('No se pueden listar las notas de un ususario que no ha añadido ninguna', () => {
     expect(app.listNotas('Marco')).to.be.eql(chalk.red('No tienes ninguna nota en tu lista'));
   });
