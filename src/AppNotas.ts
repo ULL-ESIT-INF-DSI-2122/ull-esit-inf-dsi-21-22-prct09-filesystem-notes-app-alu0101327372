@@ -39,7 +39,7 @@ export class AppNotas {
    * @param cuerpo Cuerpo de la nota
    * @param color Color del texto de la nota
    */
-   public modifyNota(usuario: string, titulo: string, cuerpo: string, color: Color): string {
+  public modifyNota(usuario: string, titulo: string, cuerpo: string, color: Color): string {
     if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
       const nota = new Nota(titulo, cuerpo, color);
       fs.writeFileSync(`data/${usuario}/${titulo}.json`, nota.write());
@@ -47,35 +47,33 @@ export class AppNotas {
     } else {
       return chalk.red('No existe una nota con ese título');
     }
-   }
+  }
 
   /**
    * Elimina una nota de la lista.
    * @param usuario Usuario que elimina la nota
    * @param titulo Titulo de la nota
    */
-   public removeNota(usuario: string, titulo: string): string {
+  public removeNota(usuario: string, titulo: string): string {
     if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
       fs.rmSync(`data/${usuario}/${titulo}.json`);
       return chalk.green('Nota eliminada correctamente');
     } else {
       return chalk.red('No existe una nota con ese título');
     }
-   }
+  }
 
   /**
    * Lista los títulos de las notas de la lista.
    * @param usuario Usuario del que se listan los titulos de las notas
    */
-   public listNotas(usuario: string): string {
+  public listNotas(usuario: string): string {
     if (fs.readdirSync(`data/${usuario}`).length === 0) {
       return chalk.red('No tienes ninguna nota en tu lista');
     } else {
       const allTitulo: string[] = fs.readdirSync(`data/${usuario}`);
-      console.log(allTitulo);
       const result: string[] = [];
       allTitulo.forEach(titulo => {
-        console.log(titulo)
         let data = fs.readFileSync(`data/${usuario}/${titulo}`);
         let notaObject = JSON.parse(data.toString());
         let nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
@@ -91,13 +89,29 @@ export class AppNotas {
       });
       return result.join('\n');
     }
-   }
+  }
 
   /**
    * Leer una nota concreta de la lista.
    * @param usuario Usuario que elimina la nota
    * @param titulo Titulo de la nota
    */
-   public readNota(usuario: string, titulo: string): void {
-   }
+  public readNota(usuario: string, titulo: string): string {
+    if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
+      let data = fs.readFileSync(`data/${usuario}/${titulo}.json`);
+      let notaObject = JSON.parse(data.toString());
+      let nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
+      if (nota.getColor() == 'azul') {
+        return chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo());
+      } else if (nota.getColor() == 'rojo') {
+        return chalk.red(nota.getTitulo(), '\n', nota.getCuerpo());
+      } else if (nota.getColor() == 'verde') {
+        return chalk.green(nota.getTitulo(), '\n', nota.getCuerpo());
+      } else {
+        return chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo());
+      }
+    } else {
+      return chalk.red('No existe una nota con ese título');
+    }
+  }
 }

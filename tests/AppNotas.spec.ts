@@ -52,4 +52,23 @@ describe('Test de la clase AppNotas', () => {
   it('No se pueden listar las notas de un ususario que no ha añadido ninguna', () => {
     expect(app.listNotas('Marco')).to.be.eql(chalk.red('No tienes ninguna nota en tu lista'));
   });
+
+  it('Se puede leer una nota', () => {
+    app.addNota('Marco', 'Mi nota', 'Esta nota es una prueba', 'azul');
+    app.addNota('Marco', 'Mi nota 2', 'Esta nota es una prueba 2', 'rojo');
+    app.addNota('Marco', 'Mi nota 3', 'Esta nota es una prueba 3', 'verde');
+    app.addNota('Marco', 'Mi nota 4', 'Esta nota es una prueba 4', 'amarillo');
+    expect(app.readNota('Marco', 'Mi nota')).to.be.eql(chalk.blue('Mi nota', '\n', 'Esta nota es una prueba'));
+    expect(app.readNota('Marco', 'Mi nota 2')).to.be.eql(chalk.red('Mi nota 2', '\n', 'Esta nota es una prueba 2'));
+    expect(app.readNota('Marco', 'Mi nota 3')).to.be.eql(chalk.green('Mi nota 3', '\n', 'Esta nota es una prueba 3'));
+    expect(app.readNota('Marco', 'Mi nota 4')).to.be.eql(chalk.yellow('Mi nota 4', '\n', 'Esta nota es una prueba 4'));
+    app.removeNota('Marco', 'Mi nota');
+    app.removeNota('Marco', 'Mi nota 2');
+    app.removeNota('Marco', 'Mi nota 3');
+    app.removeNota('Marco', 'Mi nota 4');
+  });
+
+  it('No se puede leer una nota que no concuerda con el titulo', () => {
+    expect(app.readNota('Marco', 'Mi nota')).to.be.eql(chalk.red('No existe una nota con ese título'));
+  });
 });
