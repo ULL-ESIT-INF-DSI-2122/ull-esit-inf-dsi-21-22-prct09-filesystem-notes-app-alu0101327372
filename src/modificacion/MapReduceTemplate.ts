@@ -42,7 +42,7 @@
    */
   protected map(array: number[], callback: Function): number[] {
     const newArray: number[] = []
-    for(let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       newArray.push(callback(array[i]));
     }
     return newArray;
@@ -71,15 +71,13 @@
    * @returns Returns starting message.
    */
    public beforeMap(): string {
-    const msg = 'Starting Map ...';
-    return msg;
+    return 'Starting Map ...';
   }
   /**
    * Hook
    * @returns Returns finishing message.
    */
   public afterMap(): string {
-    const msg = `Map finished.`;
-    return msg;
+    return `Map finished.`;
   }
 }

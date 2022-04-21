@@ -15,7 +15,7 @@ export class ProdMapReduce extends MapReduceTemplate {
    * Algorithm reduce
    */
   public reduce(): number {
-    let result: number = 1;
+    let result = 1;
     this.arr.forEach((element) => {
       result *= element;
     });
@@ -26,15 +26,13 @@ export class ProdMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg = 'Starting ProdMapReduce ...';
-    return msg;
+    return 'Starting ProdMapReduce ...';
   }
   /**
    * Hook
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg = `ProdMapReduce finished. Result: ${this.reduce()}`;
-    return msg;
+    return `ProdMapReduce finished. Result: ${this.reduce()}`;
   }
 }

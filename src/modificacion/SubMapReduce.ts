@@ -26,15 +26,13 @@ export class SubMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg = 'Starting SubMapReduce ...';
-    return msg;
+    return 'Starting SubMapReduce ...';
   }
   /**
    * Hook
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg = `SubMapReduce finished. Result: ${this.reduce()}`;
-    return msg;
+    return `SubMapReduce finished. Result: ${this.reduce()}`;
   }
 }

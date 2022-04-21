@@ -26,15 +26,13 @@ export class AddMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg = 'Starting AddMapReduce ...';
-    return msg;
+    return 'Starting AddMapReduce ...';
   }
   /**
    * Hook
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg = `AddMapReduce finished. Result: ${this.reduce()}`;
-    return msg;
+    return `AddMapReduce finished. Result: ${this.reduce()}`;
   }
 }

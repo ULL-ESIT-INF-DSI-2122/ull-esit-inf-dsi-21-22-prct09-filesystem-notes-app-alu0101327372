@@ -30,8 +30,10 @@ export class AppNotas {
     const nota = new Nota(titulo, cuerpo, color);
     if (!fs.existsSync(`data/${usuario}/${titulo}.json`)) {
       fs.writeFileSync(`data/${usuario}/${titulo}.json`, nota.write());
+      console.log(chalk.green('Nueva nota añadida'));
       return chalk.green('Nueva nota añadida');
     } else {
+      console.log(chalk.red('Ya existe una nota con ese título'));
       return chalk.red('Ya existe una nota con ese título');
     }
   }
@@ -47,8 +49,10 @@ export class AppNotas {
     if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
       const nota = new Nota(titulo, cuerpo, color);
       fs.writeFileSync(`data/${usuario}/${titulo}.json`, nota.write());
+      console.log(chalk.green('Nota modificada correctamente'));
       return chalk.green('Nota modificada correctamente');
     } else {
+      console.log(NOEXISTNOTA);
       return NOEXISTNOTA;
     }
   }
@@ -61,8 +65,10 @@ export class AppNotas {
   public removeNota(usuario: string, titulo: string): string {
     if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
       fs.rmSync(`data/${usuario}/${titulo}.json`);
+      console.log(chalk.green('Nota eliminada correctamente'));
       return chalk.green('Nota eliminada correctamente');
     } else {
+      console.log(NOEXISTNOTA);
       return NOEXISTNOTA;
     }
   }
@@ -73,11 +79,12 @@ export class AppNotas {
    */
   public listNotas(usuario: string): string {
     if (fs.readdirSync(`data/${usuario}`).length === 0) {
+      console.log(chalk.red('No tienes ninguna nota en tu lista'));
       return chalk.red('No tienes ninguna nota en tu lista');
     } else {
       const allTitulo: string[] = fs.readdirSync(`data/${usuario}`);
       const result: string[] = [];
-      allTitulo.forEach(titulo => {
+      allTitulo.forEach((titulo) => {
         const data = fs.readFileSync(`data/${usuario}/${titulo}`);
         const notaObject = JSON.parse(data.toString());
         const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
@@ -91,6 +98,7 @@ export class AppNotas {
           result.push(chalk.yellow(nota.getTitulo()));
         }
       });
+      console.log(result.join('\n'));
       return result.join('\n');
     }
   }
@@ -106,15 +114,20 @@ export class AppNotas {
       const notaObject = JSON.parse(data.toString());
       const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
       if (nota.getColor() === 'azul') {
+        console.log(chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo()));
         return chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo());
       } else if (nota.getColor() === 'rojo') {
+        console.log(chalk.red(nota.getTitulo(), '\n', nota.getCuerpo()));
         return chalk.red(nota.getTitulo(), '\n', nota.getCuerpo());
       } else if (nota.getColor() === 'verde') {
+        console.log(chalk.green(nota.getTitulo(), '\n', nota.getCuerpo()));
         return chalk.green(nota.getTitulo(), '\n', nota.getCuerpo());
       } else {
+        console.log(chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo()));
         return chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo());
       }
     } else {
+      console.log(NOEXISTNOTA);
       return NOEXISTNOTA;
     }
   }

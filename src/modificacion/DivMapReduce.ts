@@ -26,15 +26,13 @@ export class DivMapReduce extends MapReduceTemplate {
    * @returns Returns starting message.
    */
   public beforeReduce(): string {
-    const msg = 'Starting DivMapReduce ...';
-    return msg;
+    return 'Starting DivMapReduce ...';
   }
   /**
    * Hook
    * @returns Returns finishing message.
    */
   public afterReduce(): string {
-    const msg = `DivMapReduce finished. Result: ${this.reduce()}`;
-    return msg;
+    return `DivMapReduce finished. Result: ${this.reduce()}`;
   }
 }
