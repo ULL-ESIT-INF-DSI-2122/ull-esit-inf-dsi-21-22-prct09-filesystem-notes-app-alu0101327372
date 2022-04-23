@@ -114,6 +114,19 @@ Para borrar una nota del sistema se debe comprobar que exista una nota con el t�
 - Si existe, se procede a su eliminación y se emite un mensaje informativo por la consola. Para ello, se llama a la función `rmSync()` que se utiliza para eliminar de forma síncrona un archivo en la ruta dada.
 - En caso contrario, debe mostrarse un mensaje de error por la consola.
 
+```typescript
+public removeNota(usuario: string, titulo: string): string {
+  if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
+    fs.rmSync(`data/${usuario}/${titulo}.json`);
+    console.log(chalk.green('Nota eliminada correctamente'));
+    return chalk.green('Nota eliminada correctamente');
+  } else {
+    console.log(NOEXISTNOTA);
+    return NOEXISTNOTA;
+  }
+}
+```
+
 ### Listar los títulos de las notas del sistema
 
 Para listar se debe comprobar que exista el usuario. Para ello, se utiliza la función `existsSync()` donde se comprueba que exista el directorio donde se guardan las notas de ese usuario, que por requisito, viene definido por su nombre.
