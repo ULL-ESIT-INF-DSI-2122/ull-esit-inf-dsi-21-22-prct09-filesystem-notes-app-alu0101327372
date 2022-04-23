@@ -183,7 +183,7 @@ Para leer una nota se debe comprobar que en la lista existe una nota cuyo títul
 
 Ahora solo se debe sacar por pantalla el título y el cuerpo de la nota según el color de esta o un mensaje de error si no existe la nota.
 
-```typecript
+```typescript
 public readNota(usuario: string, titulo: string): string {
   if (fs.existsSync(`data/${usuario}/${titulo}.json`)) {
     const data = fs.readFileSync(`data/${usuario}/${titulo}.json`);
