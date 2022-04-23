@@ -91,14 +91,19 @@ export class AppNotas {
         const data = fs.readFileSync(`data/${usuario}/${titulo}`);
         const notaObject = JSON.parse(data.toString());
         const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
-        if (nota.getColor() === 'azul') {
-          result.push(chalk.blue(nota.getTitulo()));
-        } else if (nota.getColor() === 'rojo') {
-          result.push(chalk.red(nota.getTitulo()));
-        } else if (nota.getColor() === 'verde') {
-          result.push(chalk.green(nota.getTitulo()));
-        } else {
-          result.push(chalk.yellow(nota.getTitulo()));
+        switch (nota.getColor()) {
+          case 'azul':
+            result.push(chalk.blue(nota.getTitulo()));
+            break;
+          case 'rojo':
+            result.push(chalk.red(nota.getTitulo()));
+            break;
+          case 'verde':
+            result.push(chalk.green(nota.getTitulo()));
+            break;
+          case 'amarillo':
+            result.push(chalk.yellow(nota.getTitulo()));
+            break;
         }
       });
       console.log(result.join('\n'));
@@ -116,18 +121,19 @@ export class AppNotas {
       const data = fs.readFileSync(`data/${usuario}/${titulo}.json`);
       const notaObject = JSON.parse(data.toString());
       const nota: Nota = new Nota(notaObject.titulo, notaObject.cuerpo, notaObject.color);
-      if (nota.getColor() === 'azul') {
-        console.log(chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo()));
-        return chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo());
-      } else if (nota.getColor() === 'rojo') {
-        console.log(chalk.red(nota.getTitulo(), '\n', nota.getCuerpo()));
-        return chalk.red(nota.getTitulo(), '\n', nota.getCuerpo());
-      } else if (nota.getColor() === 'verde') {
-        console.log(chalk.green(nota.getTitulo(), '\n', nota.getCuerpo()));
-        return chalk.green(nota.getTitulo(), '\n', nota.getCuerpo());
-      } else {
-        console.log(chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo()));
-        return chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo());
+      switch (nota.getColor()) {
+        case 'azul':
+          console.log(chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo()));
+          return chalk.blue(nota.getTitulo(), '\n', nota.getCuerpo());
+        case 'rojo':
+          console.log(chalk.red(nota.getTitulo(), '\n', nota.getCuerpo()));
+          return chalk.red(nota.getTitulo(), '\n', nota.getCuerpo());
+        case 'verde':
+          console.log(chalk.green(nota.getTitulo(), '\n', nota.getCuerpo()));
+          return chalk.green(nota.getTitulo(), '\n', nota.getCuerpo());
+        case 'amarillo':
+          console.log(chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo()));
+          return chalk.yellow(nota.getTitulo(), '\n', nota.getCuerpo());
       }
     } else {
       console.log(NOEXISTNOTA);
