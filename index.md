@@ -240,7 +240,7 @@ Para generar la documentación se utilizará la API TypeDoc, este framework conv
 ```json
 "scripts": {
   "doc": "typedoc"
-},
+}
 ```
 
 Ahora para generar la documentación sólo se tiene que ejecutar `npm run doc`. Y se guardará en el directorio [docs](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-alu0101327372/tree/master/docs).
